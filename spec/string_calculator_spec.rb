@@ -22,5 +22,13 @@ RSpec.describe StringCalculator do
     it "returns the sum of two numbers handled by a custom delimiter" do
       expect(StringCalculator.new("//;\n3;5").sum).to eq(8)
     end
+
+    it "returns the sum of two numbers handled by multiple custom delimiters" do
+      expect(StringCalculator.new("//[*][%]\n3*4%7").sum).to eq(14)
+    end
+
+    it "returns the sum of two numbers handled by custom delimiter with length longer than one char" do
+      expect(StringCalculator.new("//[***]\n3***4***7").sum).to eq(14)
+    end
   end
 end
