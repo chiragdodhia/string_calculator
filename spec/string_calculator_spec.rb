@@ -8,7 +8,11 @@ RSpec.describe StringCalculator do
     end
 
     it "returns the same number for a single number" do
-      expect(StringCalculator.new("7").sum).to eq(7)
+      expect(StringCalculator.new("3").sum).to eq(3)
+    end
+
+    it "returns the sum of two numbers" do
+      expect(StringCalculator.new("5,7").sum).to eq(12)
     end
   end
 end
