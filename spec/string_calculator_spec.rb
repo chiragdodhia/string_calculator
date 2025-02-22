@@ -14,5 +14,9 @@ RSpec.describe StringCalculator do
     it "returns the sum of two numbers" do
       expect(StringCalculator.new("5,7").sum).to eq(12)
     end
+
+    it "returns the sum of three numbers seperated by a new ine" do
+      expect(StringCalculator.new("5\n7,3").sum).to eq(15)
+    end
   end
 end
