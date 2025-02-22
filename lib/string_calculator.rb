@@ -17,6 +17,7 @@ class StringCalculator
     num_list = @numbers.split(Regexp.union(all_delimiters)).map(&:to_i)
     negatives = num_list.select { |num| num < 0 }
     raise NegativeNumberError.new(negatives) unless negatives.empty?
+    num_list.select! { |num| num <= 1000 }
     num_list.sum
   end
 end
