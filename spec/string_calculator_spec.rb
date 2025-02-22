@@ -30,5 +30,10 @@ RSpec.describe StringCalculator do
     it "returns the sum of two numbers handled by custom delimiter with length longer than one char" do
       expect(StringCalculator.new("//[***]\n3***4***7").sum).to eq(14)
     end
+
+    it "raises an exception when negatives are present" do
+      calculator = StringCalculator.new("3,-4,-7,8")
+      expect { calculator.sum }.to raise_error(NegativeNumberError)
+    end
   end
 end

@@ -1,3 +1,5 @@
+require "custom_exception"
+
 class StringCalculator
   def initialize(numbers)
     @numbers = numbers
@@ -13,6 +15,8 @@ class StringCalculator
     end
     all_delimiters = all_delimiters + ["\n"]
     num_list = @numbers.split(Regexp.union(all_delimiters)).map(&:to_i)
+    negatives = num_list.select { |num| num < 0 }
+    raise NegativeNumberError.new(negatives) unless negatives.empty?
     num_list.sum
   end
 end
